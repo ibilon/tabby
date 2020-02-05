@@ -11,8 +11,8 @@ export const INITIAL_OPTIONS = {
             width: 730,
             height: 450
         },
-        scale: 1.0,
-        showDetails: SWITCH_ON,
+        scale: 0.8,
+        showDetails: SWITCH_OFF,
         showPreview: SWITCH_ON,
         hideAfterTabSelection: SWITCH_ON,
         searchInURLs: SWITCH_OFF

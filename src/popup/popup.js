@@ -14,12 +14,7 @@ import { updateRecorderToolTip } from "./recorder";
 
 G.tabsList = document.getElementById("tabs-list");
 
-function setPopupSize(width, height) {
-    document.documentElement.style.width = width + "px";
-    document.documentElement.style.height = height + "px";
-    document.body.style.width = width + "px";
-    document.body.style.height = height + "px";
-}
+function setPopupSize(width, height) {}
 
 async function fulfillOptions() {
     let popupOptions = (await Options.options()).popup;

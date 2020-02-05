@@ -125,9 +125,11 @@ export function updateTabs(windows) {
                 if (tab.active) {
                     tabEntry.classList.add("current-tab");
                 }
+
+                favicon = document.createElement("img");
+                favicon.classList.add("tab-entry-favicon");
+
                 if (tab.favIconUrl) {
-                    favicon = document.createElement("img");
-                    favicon.classList.add("tab-entry-favicon");
                     let favIconPromise;
                     if (w.incognito) {
                         favIconPromise = getImage(tab.favIconUrl, true);
@@ -137,6 +139,8 @@ export function updateTabs(windows) {
                     favIconPromise.then(base64Image => {
                         favicon.src = base64Image;
                     });
+                } else {
+                    favicon.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
                 }
 
                 // Create close button
@@ -152,8 +156,6 @@ export function updateTabs(windows) {
                 // Buttons wrapper
                 buttons = document.createElement("span");
                 buttons.classList.add("tab-entry-buttons");
-                buttons.appendChild(pinBtn);
-                buttons.appendChild(closeBtn);
 
                 // Set tab entry tab id
                 tabEntry.setAttribute("data-tab_id", getCorrectTabId(tab.id));
